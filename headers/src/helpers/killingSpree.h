@@ -1,0 +1,2 @@
+int
+killingSpree(void);

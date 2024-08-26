@@ -1,0 +1,2 @@
+void
+sigterm(int signo);

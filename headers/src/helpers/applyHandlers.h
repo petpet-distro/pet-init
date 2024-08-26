@@ -1,0 +1,2 @@
+int
+applyHandlers(void);
