@@ -1,0 +1,31 @@
+name: pet-init build check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run nproc
+      run: nproc
+    - name: Build
+      run: ./build.sh
+    - name: Binary
+      uses: actions/upload-artifact@v4
+      with:
+        name: petinit-artifact
+        path: build/bin/petinit
+        compression-level: 9
+    - name: Object files
+      uses: actions/upload-artifact@v4
+      with:
+        name: petinit-object-artifact
+        path: build/obj
+        compression-level: 9
