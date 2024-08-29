@@ -14,4 +14,6 @@ applyHandlers(void)
 	applySIGTERM();
 
 	dprintf(2, "\n");
+
+	return 0;
 }
