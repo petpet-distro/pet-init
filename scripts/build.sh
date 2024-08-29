@@ -2,8 +2,8 @@
 
 set -e; # exit on error
 
-CC="x86_64-unknown-linux-musl-cc"
-LD="x86_64-unknown-linux-musl-ld"
+CC="gcc"
+LD="ld"
 CFLAGS="-march=x86-64 -O0 -static"
 
 objBuildie() {
