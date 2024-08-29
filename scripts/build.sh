@@ -4,7 +4,7 @@ set -e; # exit on error
 
 CC="x86_64-unknown-linux-musl-cc"
 LD="x86_64-unknown-linux-musl-ld"
-CFLAGS="-O2 -pipe -static -std=gnu99"
+CFLAGS="-march=x86-64 -O0 -static"
 
 objBuildie() {
         printf "\tCCo\t%s\n" "$2"
@@ -31,14 +31,13 @@ objBuildie "build/obj/handlerApplicators/applySIGINT.o" "src/handlerApplicators/
 objBuildie "build/obj/handlerApplicators/applySIGTERM.o" "src/handlerApplicators/applySIGTERM.c"
 
 objBuildie "build/obj/helpers/applyHandlers.o" "src/helpers/applyHandlers.c"
-objBuildie "build/obj/helpers/killingSpree.o" "src/helpers/killingSpree.c"
 objBuildie "build/obj/helpers/spawn.o" "src/helpers/spawn.c"
 
 objBuildie "build/obj/main.o" "src/main.c"
 
 linkieStat "build/obj/handlers.o" "build/obj/handlers/sigint.o" "build/obj/handlers/sigterm.o"
 linkieStat "build/obj/handlerApplicators.o" "build/obj/handlerApplicators/applySIGTERM.o" "build/obj/handlerApplicators/applySIGINT.o"
-linkieStat "build/obj/helpers.o" "build/obj/helpers/applyHandlers.o" "build/obj/helpers/killingSpree.o" "build/obj/helpers/spawn.o"
+linkieStat "build/obj/helpers.o" "build/obj/helpers/applyHandlers.o" "build/obj/helpers/spawn.o"
 
 linkieStat "build/obj/mix.o" "build/obj/handlers.o" "build/obj/handlerApplicators.o" "build/obj/main.o" "build/obj/helpers.o"
 
