@@ -15,10 +15,8 @@ jobs:
     - uses: actions/checkout@v4
     - name: Run nproc
       run: nproc
-    - name: Install musl
-      run: sudo apt-get install musl-tools -y
     - name: Build
-      run: CC=musl-gcc ./build.sh
+      run: ./build.sh
     - name: Binary
       uses: actions/upload-artifact@v4
       with:
