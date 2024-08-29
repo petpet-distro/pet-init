@@ -2,9 +2,17 @@
 
 set -e; # exit on error
 
-CC="gcc"
-LD="ld"
-CFLAGS="-march=x86-64 -O0 -static"
+if [ "$CC" = "" ]; then
+        CC="gcc"
+fi
+
+if [ "$LD" = "" ]; then
+        LD="ld"
+fi
+
+if [ "$CFLAGS" = "" ]; then
+        CFLAGS="-march=x86-64 -O0 -static"
+fi
 
 objBuildie() {
         printf "\tCCo\t%s\n" "$2"
