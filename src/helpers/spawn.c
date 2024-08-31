@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <errno.h>
 
-int
+pid_t
 spawn(char *const argv[])
 {
 	pid_t pidRet = 0;
